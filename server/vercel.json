@@ -1,0 +1,27 @@
+
+
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "routes/**/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "src": "/api/v1/auth/(.*)", "dest": "routes/User.js" },
+      { "src": "/api/v1/profile/(.*)", "dest": "routes/Profile.js" },
+      { "src": "/api/v1/course/(.*)", "dest": "routes/Course.js" },
+      { "src": "/api/v1/payment/(.*)", "dest": "routes/Payments.js" },
+      { "src": "/api/v1/reach/(.*)", "dest": "routes/Contact.js" },
+      { "handle": "filesystem" },
+      {
+        "src": "/(.*)",
+        "dest": "index.js"
+      }
+    ]
+  }
